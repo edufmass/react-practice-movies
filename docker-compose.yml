@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  app:
+    build:
+      args:
+        user: node
+        uid: 1000
+        gid: 1000
+      context: .
+      dockerfile: Node.dockerfile
+      target: 'dev-stage'
+    ports:
+      - '3500:3000'
+    container_name: reactest-movies
+    restart: always
+    command: /bin/sh -c "chown -R 1000:1000 /app && yarn create react-app . && cd /app && yarn install && yarn start"
+    volumes:
+      - './app:/app'
+    networks:
+      - reacttest
+
+networks:
+  reacttest:
+      name: reacttest_network
