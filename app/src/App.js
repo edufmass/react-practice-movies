@@ -2,26 +2,32 @@ import logo from './logo.svg';
 import './App.css';
 import Movie from './Movie';
 import PageWrapper from './PageWrapper';
+import movieListJson from './movies.json';
 
 function App() {
 
-  
+  let movieList = movieListJson;
 
   return (
     <PageWrapper>
-      <Movie
-          movieImg="images/uploads/mv1.jpg"
-          movieTitle="Oblivion"
-          movieYear="2012"
-          movieRate="8.1"
-          movieDuration="2h 21min"
-          movieMMPA="PG-13"
-          movieRelease="1 May 2015"
-          movieDirector="Josh Whedon"
-          movieStars="Robert Downey Jr., Chris Evans, Chris Hemsworth"
+
+      {/* without { } the first element is returned, with { } return is needed */}
+      {movieList.map(movie => 
+          <Movie
+          movieImg={movie.img}
+          movieTitle={movie.title}
+          movieYear={movie.year}
+          movieRate={movie.rate}
+          movieDuration={movie.duration}
+          movieMMPA={movie.mmpa}
+          movieRelease={movie.release}
+          movieDirector={movie.director}
+          movieStars={movie.stars}
           >
-            Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity...        
+            {movie.description}            
         </Movie>
+      )}
+      
     </PageWrapper>        
   );
 }
