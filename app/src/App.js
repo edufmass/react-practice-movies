@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Movie from './Movie';
 import PageWrapper from './PageWrapper';
 import movieListJson from './movies.json';
@@ -7,9 +7,27 @@ import Pagination from './Pagination';
 function App() {
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [movieList, setMovieList] = useState([]);
   const ITEMS_PER_PAGE = 3;
 
-  let movieList = movieListJson;
+  useEffect(() => {
+    getMovies();
+  }, []);
+
+  const getMovies = async () => {
+    let url = 'api/movies.json';
+    let response = await fetch(url, {
+      "method": "GET",
+      "mode": "no-cors",
+      "headers": {
+        "Accept": "application/json",
+        "Content-type": "application/json"
+      }
+    });
+    let jsonResponse = await response.json();
+    setMovieList(jsonResponse);
+  }
+
 
   const getMoviesPerPage = () => {
     return movieList.slice(
