@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import Movie from './Movie';
+import Movie from '../components/Movie';
 import PageWrapper from './PageWrapper';
-import movieListJson from './movies.json';
-import Pagination from './Pagination';
+import movieListJson from '../movies.json';
+import Pagination from '../components/Pagination';
 
 export default function MoviesList() {
   const [currentPage, setCurrentPage] = useState(1);

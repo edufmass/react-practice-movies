@@ -104,7 +104,7 @@ export default function PageWrapper(props) {
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index-2.html"><img className="logo" src="images/logo1.png" alt="" width="119" height="58" /></a>
+				    <a href="/"><img className="logo" src="images/logo1.png" alt="" width="119" height="58" /></a>
 			    </div>
 				{/*  Collect the nav links, forms, and other content for toggling  */}
 				<div className="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -183,7 +183,7 @@ export default function PageWrapper(props) {
 								<li className="it-last"><a href="comingsoon.html">Coming soon</a></li>
 							</ul>
 						</li>                
-						<li><a href="#">Help</a></li>
+						<li><a href="/help">Help</a></li>
 						<li className="loginLink"><a href="#">LOG In</a></li>
 						<li className="btn signupLink"><a href="#">sign up</a></li>
 					</ul>
